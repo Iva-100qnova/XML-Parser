@@ -1,15 +1,20 @@
 package bg.tu_varna.sit.b1.f23621718.file_handlers;
 
-import bg.tu_varna.sit.b1.f23621718.contracts.FileReader;
-import bg.tu_varna.sit.b1.f23621718.contracts.FileWriter;
-import bg.tu_varna.sit.b1.f23621718.models.xml.XMLElement;
 
-public class XMLFileHandler implements FileWriter, FileReader {
-    public XMLElement readFile(String path)
+import bg.tu_varna.sit.b1.f23621718.file_handlers.contracts.FileHandler;
+
+import java.io.IOException;
+
+public class XMLFileHandler implements FileHandler {
+
+    @Override
+    public String read(String path) throws IOException
     {
         return null;
     }
-    public void writeToFile(String path, XMLElement xmlElement)
+
+    @Override
+    public void write(String path, String data) throws IOException
     {
 
     }

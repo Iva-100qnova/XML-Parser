@@ -1,10 +1,11 @@
 package bg.tu_varna.sit.b1.f23621718.models;
 
-import exceptions.InvalidXMLText;
-import validators.XMLTextValidator;
 
-import java.util.ArrayList;
+import bg.tu_varna.sit.b1.f23621718.exceptions.InvalidXMLText;
+import bg.tu_varna.sit.b1.f23621718.validators.XMLTextValidator;
+
 import java.util.List;
+import java.util.ArrayList;
 
 public class XMLText extends XMLContent {
     private final String text;

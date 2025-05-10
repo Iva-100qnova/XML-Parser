@@ -1,7 +1,8 @@
 package bg.tu_varna.sit.b1.f23621718.models;
 
-import exceptions.InvalidXMLElementName;
-import validators.XMLNameValidator;
+
+import bg.tu_varna.sit.b1.f23621718.exceptions.InvalidXMLElementName;
+import bg.tu_varna.sit.b1.f23621718.validators.XMLNameValidator;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
