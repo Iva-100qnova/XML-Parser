@@ -13,9 +13,13 @@ public class OpenMenuCommand extends AbstractMenuCommand {
 
     private String filePath;
 
+    public String getFilePath() {
+        return filePath;
+    }
+
     @Override
-    public void doWork(List<String> params) {
-        log(filePath);
+    protected void doWork(List<String> params) {
+        this.getMenu().setFilePath(getFilePath());
     }
 
     @Override

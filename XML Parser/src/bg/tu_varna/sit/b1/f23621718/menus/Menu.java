@@ -77,7 +77,7 @@ public class Menu implements Logger, FileMenu, CommandMenu, BaseMenu {
     }
 
     @Override
-    public void setFilePath() {
+    public void setFilePath(String file) {
         this.file = file;
     }
 }

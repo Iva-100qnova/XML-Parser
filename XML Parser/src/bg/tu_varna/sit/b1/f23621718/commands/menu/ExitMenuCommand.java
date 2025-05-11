@@ -11,7 +11,7 @@ public class ExitMenuCommand extends AbstractMenuCommand{
     }
 
     @Override
-    public void doWork(List<String> params) {
+    protected void doWork(List<String> params) {
         getMenu().exit();
         log("Exiting the program...");
     }

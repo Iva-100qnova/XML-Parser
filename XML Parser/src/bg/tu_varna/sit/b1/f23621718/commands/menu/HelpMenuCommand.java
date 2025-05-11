@@ -10,7 +10,7 @@ public class HelpMenuCommand extends AbstractMenuCommand {
     }
 
     @Override
-    public void doWork(List<String> params) {
+    protected void doWork(List<String> params) {
         var commands = getMenu().getCommands().values();
         StringBuilder sb = new StringBuilder("The following commands are supported:");
         for (var c : commands) {
