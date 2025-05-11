@@ -1,8 +1,8 @@
 package bg.tu_varna.sit.b1.f23621718.parsers;
 
 
-import bg.tu_varna.sit.b1.f23621718.commands.contracts.QueryCommand;
-import bg.tu_varna.sit.b1.f23621718.parsers.contracts.Parser;
+import bg.tu_varna.sit.b1.f23621718.contracts.commands.QueryCommand;
+import bg.tu_varna.sit.b1.f23621718.contracts.parsers.Parser;
 
 import java.util.List;
 

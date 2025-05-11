@@ -1,8 +1,10 @@
 package bg.tu_varna.sit.b1.f23621718.commands.menu;
 
-import bg.tu_varna.sit.b1.f23621718.commands.contracts.*;
-import bg.tu_varna.sit.b1.f23621718.loggers.contracts.*;
-import bg.tu_varna.sit.b1.f23621718.menu.*;
+import bg.tu_varna.sit.b1.f23621718.contracts.commands.*;
+import bg.tu_varna.sit.b1.f23621718.contracts.loggers.*;
+import bg.tu_varna.sit.b1.f23621718.exceptions.menu.*;
+import bg.tu_varna.sit.b1.f23621718.menus.*;
+import bg.tu_varna.sit.b1.f23621718.parsers.*;
 
 import java.util.*;
 
@@ -32,8 +34,9 @@ public abstract class AbstractMenuCommand implements MenuCommand, Logger {
 
     @Override
     public List<String> getParameters() {
-        return params;
+        return new ArrayList<>(params);
     }
+
 
     @Override
     public String getParametersAsString() {
@@ -44,6 +47,11 @@ public abstract class AbstractMenuCommand implements MenuCommand, Logger {
             sb.append(String.format(" <%s>", p));
         }
         return sb.deleteCharAt(0).toString();
+    }
+
+    @Override
+    public void addParameter(String parameter) {
+        this.params.add(parameter);
     }
 
     @Override
@@ -60,4 +68,27 @@ public abstract class AbstractMenuCommand implements MenuCommand, Logger {
     public String toString() {
         return String.format("%s %s \n\tDescription: %s", getName(), getParametersAsString(), getDescription());
     }
+
+    @Override
+    public void execute() {
+        var params = parseParameters();
+        this.validate(params);
+        this.doWork(params);
+    }
+
+    protected List<String> parseParameters() {
+        var reader = getMenu().getIOHandler().getReader();
+        var line = reader.nextLine();
+        var parser = new ParameterParser();
+        return parser.parse(line);
+    }
+
+
+    protected void validate(List<String> params) {
+        if (this.getMenu().getFilePath() == null)
+            throw new NoFilePathException("An open file is required to run this command.");
+
+    }
+
+    protected abstract void doWork(List<String> params);
 }

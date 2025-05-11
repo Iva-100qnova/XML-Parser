@@ -1,7 +1,7 @@
 package bg.tu_varna.sit.b1.f23621718.validators;
 
 
-import bg.tu_varna.sit.b1.f23621718.validators.contracts.Validator;
+import bg.tu_varna.sit.b1.f23621718.contracts.validators.Validator;
 
 public class XMLTextValidator implements Validator<String> {
     @Override

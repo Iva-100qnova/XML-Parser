@@ -1,7 +1,7 @@
 package bg.tu_varna.sit.b1.f23621718.models;
 
 
-import bg.tu_varna.sit.b1.f23621718.exceptions.InvalidXMLText;
+import bg.tu_varna.sit.b1.f23621718.exceptions.xml.InvalidXMLText;
 import bg.tu_varna.sit.b1.f23621718.validators.XMLTextValidator;
 
 import java.util.List;

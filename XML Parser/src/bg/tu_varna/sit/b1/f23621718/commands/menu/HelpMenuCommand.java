@@ -1,6 +1,8 @@
 package bg.tu_varna.sit.b1.f23621718.commands.menu;
 
-import bg.tu_varna.sit.b1.f23621718.menu.*;
+import bg.tu_varna.sit.b1.f23621718.menus.*;
+
+import java.util.*;
 
 public class HelpMenuCommand extends AbstractMenuCommand {
     public HelpMenuCommand(Menu menu) {
@@ -8,7 +10,7 @@ public class HelpMenuCommand extends AbstractMenuCommand {
     }
 
     @Override
-    public void execute() {
+    public void doWork(List<String> params) {
         var commands = getMenu().getCommands().values();
         StringBuilder sb = new StringBuilder("The following commands are supported:");
         for (var c : commands) {
@@ -16,5 +18,9 @@ public class HelpMenuCommand extends AbstractMenuCommand {
         }
 
         log(sb.toString());
+    }
+
+    @Override
+    protected void validate(List<String> params) {
     }
 }

@@ -1,36 +1,43 @@
-package bg.tu_varna.sit.b1.f23621718.menu;
+package bg.tu_varna.sit.b1.f23621718.menus;
 
 
-import bg.tu_varna.sit.b1.f23621718.commands.contracts.*;
-import bg.tu_varna.sit.b1.f23621718.exceptions.*;
-import bg.tu_varna.sit.b1.f23621718.loggers.contracts.*;
+import bg.tu_varna.sit.b1.f23621718.contracts.commands.*;
+import bg.tu_varna.sit.b1.f23621718.contracts.io_handlers.*;
+import bg.tu_varna.sit.b1.f23621718.contracts.loggers.*;
+import bg.tu_varna.sit.b1.f23621718.contracts.menu.*;
+import bg.tu_varna.sit.b1.f23621718.exceptions.menu.*;
 
 import java.util.*;
 
-public class Menu implements Logger {
+public class Menu implements Logger, FileMenu, CommandMenu, BaseMenu {
 
 
     private Map<String, MenuCommand> commands;
-    private Logger logger;
+    private IOHandler ioHandler;
     private boolean exit;
+    private String file;
 
-    public Menu(Logger logger) {
-        this.logger = logger;
+    public Menu(IOHandler ioHandler) {
+        this.ioHandler = ioHandler;
         commands = new HashMap<>();
     }
 
+    @Override
     public Map<String, MenuCommand> getCommands() {
         return new HashMap<>(commands);
     }
 
+    @Override
     public MenuCommand getCommand(String name) {
         return commands.get(name);
     }
 
+    @Override
     public void addCommand(MenuCommand command) {
         commands.put(command.getName(), command);
     }
 
+    @Override
     public void executeCommand(String name) {
         var command = getCommand(name);
         if (command == null)
@@ -38,24 +45,22 @@ public class Menu implements Logger {
         command.execute();
     }
 
-    public Logger getLogger() {
-        return logger;
+    @Override
+    public IOHandler getIOHandler() {
+        return this.ioHandler;
     }
 
-    public void setLogger(Logger logger) {
-        this.logger = logger;
-    }
-
+    @Override
     public void exit() {
         exit = true;
     }
 
+    @Override
     public void startMenu() {
         exit = false;
         while (!exit) {
             log(">");
-            Scanner reader = new Scanner(System.in);
-            var name = reader.next();
+            var name = ioHandler.getReader().next();
             executeCommand(name);
             log("\n");
         }
@@ -63,6 +68,16 @@ public class Menu implements Logger {
 
     @Override
     public void log(String message) {
-        getLogger().log(message);
+        ioHandler.log(message);
+    }
+
+    @Override
+    public String getFilePath() {
+        return this.file;
+    }
+
+    @Override
+    public void setFilePath() {
+        this.file = file;
     }
 }
