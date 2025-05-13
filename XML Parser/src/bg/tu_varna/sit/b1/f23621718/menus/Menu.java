@@ -59,9 +59,13 @@ public class Menu implements Logger, FileMenu, CommandMenu, BaseMenu {
     public void startMenu() {
         exit = false;
         while (!exit) {
-            log(">");
-            var name = ioHandler.getReader().next();
-            executeCommand(name);
+            try {
+                log(">");
+                var name = ioHandler.getReader().next();
+                executeCommand(name);
+            } catch (Exception e) {
+                log(e.getMessage());
+            }
             log("\n");
         }
     }

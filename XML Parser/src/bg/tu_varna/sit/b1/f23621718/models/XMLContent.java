@@ -9,7 +9,7 @@ public abstract class XMLContent {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (var child : getChildren()) {
-            sb.append("\t").append(child.toString()).append("\n");
+            sb.append("\t").append(child.toString().replaceAll("\n", "\n\t")).append("\n");
         }
         return sb.toString();
     }

@@ -20,12 +20,14 @@ public class OpenMenuCommand extends AbstractMenuCommand {
     @Override
     protected void doWork(List<String> params) {
         this.getMenu().setFilePath(getFilePath());
+
+        log("File opened.");
     }
 
     @Override
     protected void validate(List<String> params) {
         if (params.isEmpty())
-            throw new InvalidInputException("Missing <file> parameter. ");
+            throw new InvalidInputException("Missing <file> parameter.");
 
         this.filePath = params.getFirst();
     }

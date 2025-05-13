@@ -24,9 +24,8 @@ public class OpenXMLMenuCommand extends OpenMenuCommand {
             var parser = new XMLParser();
             var parsedElement = parser.parse(data);
 
-            XMLRoot.setRootElement(parsedElement);
             super.doWork(params);
-            
+            XMLRoot.setRootElement(parsedElement);
         } catch (IOException e) {
             throw new InvalidInputException(e.getMessage());
         }

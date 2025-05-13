@@ -1,0 +1,13 @@
+<xml id="test" value="3333">
+    <teacher id="test">Inside</teacher>
+    <student>
+        <facultyNumber>123 123 123    123</facultyNumber>
+        <name>
+            <firstName>
+                Goshko    Ivanov
+                Goshev
+            </firstName>
+            <surname value="Ivanov" />
+        </name>
+    </student>
+</xml>

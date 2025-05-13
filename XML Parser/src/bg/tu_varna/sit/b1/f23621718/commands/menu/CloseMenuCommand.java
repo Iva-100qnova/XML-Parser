@@ -12,7 +12,6 @@ public class CloseMenuCommand extends AbstractMenuCommand {
 
     @Override
     protected void doWork(List<String> params) {
-        XMLRoot.setRootElement(null);
         getMenu().setFilePath(null);
         log("File closed.");
     }

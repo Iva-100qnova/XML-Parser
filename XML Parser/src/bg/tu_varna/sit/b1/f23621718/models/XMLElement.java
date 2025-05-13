@@ -1,13 +1,10 @@
 package bg.tu_varna.sit.b1.f23621718.models;
 
 
-import bg.tu_varna.sit.b1.f23621718.exceptions.xml.InvalidXMLElementName;
-import bg.tu_varna.sit.b1.f23621718.validators.XMLNameValidator;
+import bg.tu_varna.sit.b1.f23621718.exceptions.xml.*;
+import bg.tu_varna.sit.b1.f23621718.validators.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class XMLElement extends XMLContent {
     private final String name;
@@ -42,6 +39,10 @@ public class XMLElement extends XMLContent {
         children.add(node);
     }
 
+    public void addChildren(Collection<XMLContent> nodes) {
+        children.addAll(nodes);
+    }
+
     public String getAttributesAsString() {
         if (attributes.isEmpty())
             return "";
@@ -69,5 +70,9 @@ public class XMLElement extends XMLContent {
         sb.append(super.toString());
         sb.append(String.format("</%s>", getName()));
         return sb.toString();
+    }
+
+    public String getAttribute(String key) {
+        return getAttributes().get(key);
     }
 }
