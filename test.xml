@@ -1,13 +1,22 @@
 <xml id="test" value="3333">
-    <teacher id="test">Inside</teacher>
-    <student>
-        <facultyNumber>123 123 123    123</facultyNumber>
-        <name>
-            <firstName>
-                Goshko    Ivanov
-                Goshev
-            </firstName>
-            <surname value="Ivanov" />
-        </name>
-    </student>
+	<teacher id="test_2">
+		Inside
+	</teacher>
+	<student id="Z0WSdOQFXC">
+		<facultyNumber id="0EcxQqOkoM">
+			123 123 123    123
+		</facultyNumber>
+		<name id="o7ZzqrttyB">
+			<firstName id="1v1p7uzjf9">
+				Goshko    Ivanov
+				Goshev
+			</firstName>
+			<surname value="Ivanov" id="JTI5oQhW8Q"/>
+		</name>
+		<address id="test_3">
+			<city id="cx5B9mgMoE">
+				Varna
+			</city>
+		</address>
+	</student>
 </xml>

@@ -20,8 +20,9 @@ public class ParameterParser implements Parser<List<String>> {
                     var nextQuoteIndex = input.indexOf('"', i + 1);
                     if (nextQuoteIndex == -1)
                         throw new InvalidInputException("Invalid parameter input. Quote has no matching closing quote");
-                    params.add(input.substring(i, nextQuoteIndex));
+                    params.add(input.substring(i+1, nextQuoteIndex));
                     sb.setLength(0);
+                    i = nextQuoteIndex + 1;
                     break;
                 case ' ':
                     if (!sb.isEmpty())
