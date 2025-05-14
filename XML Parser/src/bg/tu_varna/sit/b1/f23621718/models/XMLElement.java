@@ -1,12 +1,13 @@
 package bg.tu_varna.sit.b1.f23621718.models;
 
 
+import bg.tu_varna.sit.b1.f23621718.contracts.models.*;
 import bg.tu_varna.sit.b1.f23621718.exceptions.xml.*;
 import bg.tu_varna.sit.b1.f23621718.validators.*;
 
 import java.util.*;
 
-public class XMLElement extends XMLContent {
+public class XMLElement extends XMLContent implements XMLContentWithId {
     private final String name;
     private final Map<String, String> attributes = new LinkedHashMap<>();
     private final List<XMLContent> children = new ArrayList<>();
@@ -74,5 +75,19 @@ public class XMLElement extends XMLContent {
 
     public String getAttribute(String key) {
         return getAttributes().get(key);
+    }
+
+    public void removeAttribute(String key) {
+        getAttributes().remove(key);
+    }
+
+    @Override
+    public String getId() {
+        return getAttribute("id");
+    }
+
+    @Override
+    public void setId(String id) {
+        addAttribute("id", id);
     }
 }

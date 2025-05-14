@@ -12,7 +12,7 @@ public class XMLParser implements Parser<XMLElement> {
 
     private final Map<String, Integer> ids = new HashMap<>();
 
-    public String addId(String id) {
+    public static String addId(String id, Map<String, Integer> ids) {
         if (id == null) {
             var generator = new IDGenerator(10);
             id = generator.generate();
@@ -45,7 +45,9 @@ public class XMLParser implements Parser<XMLElement> {
             element.addAttribute(attribute[0], value);
         }
 
-        element.addAttribute("id", addId(element.getAttribute("id")));
+        var id = addId(element.getAttribute("id"), this.ids);
+        element.addAttribute("id", id);
+
         return element;
     }
 
@@ -68,7 +70,8 @@ public class XMLParser implements Parser<XMLElement> {
 
         if (s.charAt(indexOfFirstElementEnding - 1) == '/') {
             // Self-closing
-            result.add(parseAttributes(s.substring(1, indexOfFirstElementEnding - 1)));
+            var el = parseAttributes(s.substring(1, indexOfFirstElementEnding - 1));
+            result.add(el);
             result.addAll(parseElements(s.substring(indexOfFirstElementEnding + 1)));
             return result;
         }
@@ -76,6 +79,7 @@ public class XMLParser implements Parser<XMLElement> {
         var element = parseAttributes(s.substring(1, indexOfFirstElementEnding));
         var closingTag = String.format("</%s>", element.getName());
         var elementEndingIndex = s.indexOf(closingTag);
+
 
         if (elementEndingIndex == -1) {
             // Not self-closing, but single tag (no inside content)
