@@ -8,7 +8,7 @@ import bg.tu_varna.sit.b1.f23621718.validators.*;
 import java.util.*;
 
 public class XMLElement extends XMLContent implements XMLContentWithId {
-    private final String name;
+    private String name;
     private final Map<String, String> attributes = new LinkedHashMap<>();
     private final List<XMLContent> children = new ArrayList<>();
 
@@ -21,6 +21,12 @@ public class XMLElement extends XMLContent implements XMLContentWithId {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        if (name.contains(" "))
+            throw new InvalidXMLElementName("Element name cannot contain a space!");
+        this.name = name;
     }
 
     public Map<String, String> getAttributes() {

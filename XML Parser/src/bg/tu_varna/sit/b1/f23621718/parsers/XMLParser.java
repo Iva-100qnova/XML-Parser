@@ -60,7 +60,7 @@ public class XMLParser implements Parser<XMLElement> {
             return result;
 
         if (s.charAt(0) != '<') {
-            result.add(new XMLText(s.replaceAll("\n +", "\n")));
+            result.add(new XMLText(s.replaceAll("\n +", "\n").replaceAll("\n\t+", "\n")));
             return result;
         }
 

@@ -87,6 +87,8 @@ public abstract class AbstractMenuCommand implements MenuCommand, Logger {
     protected void validate(List<String> params) {
         if (this.getMenu().getFilePath() == null)
             throw new NoFilePathException("An open file is required to run this command.");
+        if (params.size() != getParameters().size())
+            throw new InvalidInputException("Invalid number of parameters passed. Expected: " + getParameters().size());
 
     }
 

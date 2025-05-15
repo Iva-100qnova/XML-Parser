@@ -84,10 +84,28 @@ public class XMLElementTraversal {
         return result;
     }
 
+    public static List<XMLElement> getChildElements(String id) {
+        return getChildElements(getElementById(id));
+    }
+
+    public static List<XMLElement> getChildElements(XMLContent root) {
+        List<XMLElement> result = new ArrayList<>();
+        for (var element : root.getChildren()) {
+            if (element instanceof XMLElement) {
+                result.add((XMLElement) element);
+            }
+        }
+        return result;
+    }
+
+    public static String getText(String id) {
+        return getText(getElementById(id));
+    }
+
     public static String getText(XMLContent root) {
         StringBuilder sb = new StringBuilder();
         if (root instanceof XMLText) {
-            sb.append(((XMLText) root).getText());
+            sb.append(((XMLText) root).getText()).append("\n");
         }
 
         for (var element : root.getChildren()) {
@@ -99,10 +117,18 @@ public class XMLElementTraversal {
         return sb.toString();
     }
 
-    public static void addChild(String id) {
+    public static XMLElement addChild(String id) {
         var element = getElementById(id);
-        element.addChild(new XMLElement(""));
+        var newEl = new XMLElement("newChild");
+        element.addChild(newEl);
         XMLRoot.resetMapping();
+        return newEl;
+    }
+
+    public static XMLElement changeTag(String id, String tag) {
+        var element = getElementById(id);
+        element.setName(tag);
+        return element;
     }
 
 }

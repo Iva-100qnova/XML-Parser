@@ -19,4 +19,11 @@
 			</city>
 		</address>
 	</student>
+	<university id="BUsmuSzyZW">
+		<hall isBig="true" hasWindows="false" id="LJcXbgKFsV"/>
+		<hall hasWindows="true" id="Jeof0mvtbI"/>
+		<hall id="123" hasWindows="true">
+			<test-tag id="DST3yeBTxz"/>
+		</hall>
+	</university>
 </xml>

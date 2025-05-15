@@ -7,7 +7,7 @@ import java.util.*;
 
 public class CloseMenuCommand extends AbstractMenuCommand {
     public CloseMenuCommand(Menu menu) {
-        super("close", "closes currently opened file\n", menu);
+        super("close", "closes currently opened file", menu);
     }
 
     @Override

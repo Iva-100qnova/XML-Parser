@@ -11,9 +11,17 @@ public class XMLParserMenu extends Menu {
         addCommand(new HelpMenuCommand(this));
         addCommand(new OpenXMLMenuCommand(this));
         addCommand(new PrintMenuCommand(this));
+        addCommand(new SelectXMLMenuCommand(this));
+        addCommand(new SetXMLMenuCommand(this));
+        addCommand(new ChildrenXMLMenuCommand(this));
+        addCommand(new ChildXMLMenuCommand(this));
         addCommand(new CloseMenuCommand(this));
         addCommand(new SaveXMLMenuCommand(this));
         addCommand(new SaveAsXMLMenuCommand(this));
+        addCommand(new TextXMLMenuCommand(this));
+        addCommand(new DeleteXMLMenuCommand(this));
+        addCommand(new NewChildXMLMenuCommand(this));
+        addCommand(new ChangeTagXMLMenuCommand(this));
         addCommand(new ExitMenuCommand(this));
 
     }

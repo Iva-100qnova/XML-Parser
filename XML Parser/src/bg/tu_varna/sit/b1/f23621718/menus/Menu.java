@@ -6,6 +6,7 @@ import bg.tu_varna.sit.b1.f23621718.contracts.io_handlers.*;
 import bg.tu_varna.sit.b1.f23621718.contracts.loggers.*;
 import bg.tu_varna.sit.b1.f23621718.contracts.menu.*;
 import bg.tu_varna.sit.b1.f23621718.exceptions.menu.*;
+import com.sun.source.tree.*;
 
 import java.util.*;
 
@@ -19,12 +20,12 @@ public class Menu implements Logger, FileMenu, CommandMenu, BaseMenu {
 
     public Menu(IOHandler ioHandler) {
         this.ioHandler = ioHandler;
-        commands = new HashMap<>();
+        commands = new LinkedHashMap<>();
     }
 
     @Override
     public Map<String, MenuCommand> getCommands() {
-        return new HashMap<>(commands);
+        return new LinkedHashMap<>(commands);
     }
 
     @Override

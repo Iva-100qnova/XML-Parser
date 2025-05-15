@@ -28,6 +28,8 @@ public class OpenMenuCommand extends AbstractMenuCommand {
     protected void validate(List<String> params) {
         if (params.isEmpty())
             throw new InvalidInputException("Missing <file> parameter.");
+        if (params.size() != 1)
+            throw new InvalidInputException("Invalid number of parameters passed. Expected: 1");
 
         this.filePath = params.getFirst();
     }
