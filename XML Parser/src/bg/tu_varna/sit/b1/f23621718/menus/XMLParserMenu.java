@@ -22,6 +22,7 @@ public class XMLParserMenu extends Menu {
         addCommand(new DeleteXMLMenuCommand(this));
         addCommand(new NewChildXMLMenuCommand(this));
         addCommand(new ChangeTagXMLMenuCommand(this));
+        addCommand(new XPathXMLMenuCommand(this));
         addCommand(new ExitMenuCommand(this));
 
     }

@@ -17,6 +17,11 @@ public class ParameterParser implements Parser<List<String>> {
             char c = input.charAt(i);
             switch (c) {
                 case '"':
+                    if(sb.length() != 0)
+                    {
+                        sb.append(c);
+                        continue;
+                    }
                     var nextQuoteIndex = input.indexOf('"', i + 1);
                     if (nextQuoteIndex == -1)
                         throw new InvalidInputException("Invalid parameter input. Quote has no matching closing quote");
