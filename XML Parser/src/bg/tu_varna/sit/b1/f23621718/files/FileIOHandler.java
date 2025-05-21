@@ -8,9 +8,16 @@ import java.io.FileWriter;
 
 public class FileIOHandler implements FileHandler {
 
+    /**
+     * Чете съдържанието на файл от дадения път.
+     * Ако файлът не съществува, се създава нов празен файл и се връща празен низ.
+     *
+     * @param path Път до файла.
+     * @return Съдържанието на файла като низ.
+     * @throws IOException При проблем с четенето или създаването на файла.
+     */
     @Override
     public String read(String path) throws IOException {
-
         File file = new File(path);
         if (file.createNewFile()) {
             return "";
@@ -26,6 +33,14 @@ public class FileIOHandler implements FileHandler {
         return sb.toString();
     }
 
+    /**
+     * Записва даден низ в файл на посочения път.
+     * Ако файлът не съществува, се създава нов.
+     *
+     * @param path Път до файла.
+     * @param data Данните за запис.
+     * @throws IOException При проблем с писането във файла.
+     */
     @Override
     public void write(String path, String data) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));

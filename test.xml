@@ -1,29 +1,66 @@
-<xml id="test" value="3333">
-	<teacher id="test_2">
-		Inside
-	</teacher>
-	<student id="Z0WSdOQFXC">
-		<facultyNumber id="0EcxQqOkoM">
-			123 123 123    123
-		</facultyNumber>
-		<name id="o7ZzqrttyB">
-			<firstName id="1v1p7uzjf9">
-				Goshko    Ivanov
-				Goshev
-			</firstName>
-			<surname value="Ivanov" id="JTI5oQhW8Q"/>
-		</name>
-		<address id="test_3">
-			<city id="cx5B9mgMoE">
-				Varna
-			</city>
-		</address>
-	</student>
-	<university id="BUsmuSzyZW">
-		<hall isBig="true" hasWindows="false" id="LJcXbgKFsV"/>
-		<hall hasWindows="true" id="Jeof0mvtbI"/>
-		<hall id="123" hasWindows="true">
-			<test-tag id="DST3yeBTxz"/>
-		</hall>
-	</university>
-</xml>
+<university id="university1" name="Technical University">
+	<faculty id="faculty_cs" name="Faculty of Computer Science">
+		<teacher id="teacher_ivan">
+			<name id="name_ivan">
+				<firstName id="first_ivan">
+					Ivan
+				</firstName>
+				<lastName id="last_ivan">
+					Petrov
+				</lastName>
+			</name>
+		</teacher>
+		<teacher id="teacher_maria" department="PMG">
+			<name id="name_maria">
+				<firstName id="first_maria">
+					Maria
+				</firstName>
+				<lastName id="last_maria">
+					Ivanova
+				</lastName>
+			</name>
+		</teacher>
+		<student id="student_gosho" group="A1">
+			<facultyNumber id="fn_gosho">
+				123456
+			</facultyNumber>
+			<name id="name_gosho">
+				<firstName id="first_gosho">
+					Gosho
+				</firstName>
+				<lastName id="last_gosho">
+					Goshev
+				</lastName>
+			</name>
+			<address id="address_gosho">
+				<city id="city_gosho">
+					Sofia
+				</city>
+				<postalCode id="post_gosho">
+					1000
+				</postalCode>
+			</address>
+		</student>
+	</faculty>
+	<faculty id="faculty_me" name="Faculty of Mechanical Engineering">
+		<student id="student_nikola" group="B2">
+			<facultyNumber id="fn_nikola">
+				789012
+			</facultyNumber>
+			<name id="name_nikola">
+				<firstName id="first_nikola">
+					Nikola
+				</firstName>
+				<lastName id="last_nikola">
+					Dimitrov
+				</lastName>
+			</name>
+			<address id="address_nikola">
+				<city id="city_nikola">
+					Plovdiv
+				</city>
+			</address>
+			<postcode id="t6QDzG5EmB"/>
+		</student>
+	</faculty>
+</university>
